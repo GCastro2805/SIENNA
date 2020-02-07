@@ -1,4 +1,10 @@
 
+
+/* --------------------------------- 
+	Menú principal del sistema
+	GACC		202002070957
+   ---------------------------------  */
+
 // SIENNADlg.cpp: archivo de implementación
 //
 
@@ -8,6 +14,7 @@
 #include "afxdialogex.h"
 
 #include "C_Menu.hpp"
+#include "Registro.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -117,8 +124,11 @@ BOOL CSIENNADlg::OnInitDialog()
 
 		switch (sc)		//Valida la tecla que haya presionado el usuario
 		{
-			case F1:
-				AfxMessageBox(_T("Tecla F1"));
+		case F1:
+				{
+				   CRegistro registro;
+				   registro.DoModal();
+				}
 				break;
 			case F2:
 				AfxMessageBox(_T("Tecla F2"));
