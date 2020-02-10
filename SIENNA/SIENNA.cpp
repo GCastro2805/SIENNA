@@ -15,6 +15,7 @@
 #include "SIENNADlg.h"
 
 #define MAIN
+#include "LMaxw2013.hpp"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

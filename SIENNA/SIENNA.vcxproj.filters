@@ -60,6 +60,7 @@
     <None Include="res\SIENNA.rc2">
       <Filter>Archivos de recursos</Filter>
     </None>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\SIENNA.ico">
