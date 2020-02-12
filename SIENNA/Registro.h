@@ -43,5 +43,5 @@ private:
 	bool validarControl();
 public:
 	void asignarFoco();
-	bool is_email_valid(const std::string& email);
+	bool is_email_valid(void);
 };

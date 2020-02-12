@@ -126,16 +126,7 @@ bool CRegistro::validarControl()
 				}
 				else
 				{
-					//sprintf_s(buffer2, 200, "%10s", sTexto);
-					//strcpy(buffer2, (LPCTSTR)sTexto);
-					strcpy(buffer2, (const *)sTexto);
-
-					//sprintf_s(buffer2, 200, "%s", "gcastro@coppel.com");
-sTexto2 = CString(buffer2);
-AfxMessageBox((sTexto2));
-
-
-					if (is_email_valid(buffer2) == false)
+					if (is_email_valid() == false)
 					{
 						sprintf_s(buffer, 200, "%s", "MAIL NO VÁLIDO");
 						bValorRegresa = false;
@@ -200,12 +191,17 @@ void CRegistro::asignarFoco()
 }
 
 
-bool CRegistro::is_email_valid(const std::string& email)
+bool CRegistro::is_email_valid(void)
 {
 	// define a regular expression
-	const std::regex pattern
-		("(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+");
+	CString sTxt("gcastro@coppel.com");
+
+
+	const std::regex pattern("(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+");
+	std::string s("gcastro@coppel.");
+
+	AfxMessageBox((sTxt));
 
 	// try to match the string with the regular expression
-	return std::regex_match(email, pattern);
+	return std::regex_match(s, pattern);
 }
