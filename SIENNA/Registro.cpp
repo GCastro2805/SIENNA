@@ -39,6 +39,11 @@ void CRegistro::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT_DIRECCION, m_direccion);
 	DDX_Control(pDX, IDC_EDIT_TELEFONO, m_telefono);
 	DDX_Control(pDX, IDC_EDIT_CELULAR, m_celular);
+
+	m_nombre.SetLimitText(30);
+	m_direccion.SetLimitText(30);
+	m_telefono.SetLimitText(10);
+	m_celular.SetLimitText(10);
 }
 
 
@@ -153,6 +158,24 @@ bool CRegistro::validarControl()
 			if (sTexto2.Compare(sTexto) != 0)
 			{ 
 				sprintf_s(buffer, 200, "%s", "CLAVE ES DIFERENTE A LA CAPTURADA");
+				bValorRegresa = false;
+			}
+			break;
+		case 5:
+			m_telefono.GetWindowTextW(sTexto);
+			sTexto.Trim();
+			if (sTexto.GetLength() != 10)
+			{
+				sprintf_s(buffer, 200, "%s", "TELÉFONO DEBE SER DE 10 DÍGITOS");
+				bValorRegresa = false;
+			}
+			break;
+		case 6:
+			m_celular.GetWindowTextW(sTexto);
+			sTexto.Trim();
+			if (sTexto.GetLength() != 10)
+			{
+				sprintf_s(buffer, 200, "%s", "CELULAR DEBE SER DE 10 DÍGITOS");
 				bValorRegresa = false;
 			}
 			break;
