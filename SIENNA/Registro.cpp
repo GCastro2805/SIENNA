@@ -20,6 +20,7 @@ CRegistro::CRegistro(CWnd* pParent /*=NULL*/)
 	, bShiftTab(false)
 	, iFoco(0)
 	, iControles(6)
+	, sTexto(_T(""))
 {
 
 }
@@ -101,9 +102,8 @@ BOOL CRegistro::PreTranslateMessage(MSG* pMsg)
 bool CRegistro::validarControl()
 {
 	bool bValorRegresa = true; 
-	CString sTexto, sTexto2;
+	CString sTexto2;
 	std::string email1;
-	char buffer2[200] = "";
 
 	switch (iFoco)
 	{
@@ -193,15 +193,12 @@ void CRegistro::asignarFoco()
 
 bool CRegistro::is_email_valid(void)
 {
-	// define a regular expression
-	CString sTxt("gcastro@coppel.com");
-
-
 	const std::regex pattern("(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+");
-	std::string s("gcastro@coppel.");
 
-	AfxMessageBox((sTxt));
+	CT2CA pszConvertedAnsiString(sTexto);
+	std::string strStd(pszConvertedAnsiString);
 
-	// try to match the string with the regular expression
-	return std::regex_match(s, pattern);
+	return std::regex_match(strStd, pattern);
 }
+
+

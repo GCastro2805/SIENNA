@@ -44,4 +44,6 @@ private:
 public:
 	void asignarFoco();
 	bool is_email_valid(void);
+private:
+	CString sTexto;
 };
